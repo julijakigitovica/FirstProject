@@ -8,8 +8,14 @@ class ShoppingListApplication {
     public static void main(String[] args) {
         ProductService productService = new DefaultProductService();
 
+        NameValidation nameValidation =new NameValidation();
+        DiscountValidation discountValidation=new DiscountValidation();
+        PriceValidation priceValidation=new PriceValidation();
+
+
         Action exitAction = new ExitAction();
-        Action createUserAction = new CreateProductAction(productService);
+        Action createUserAction = new CreateProductAction(productService,nameValidation,discountValidation,
+                priceValidation);
         Action findUserByIdAction = new FindProductByIdAction(productService);
 
         List<Action> actions = new ArrayList<>();
