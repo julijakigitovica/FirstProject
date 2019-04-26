@@ -1,4 +1,4 @@
-package com.javaguru.shoppinglist;
+package com.javaguru.shoppinglist.domain;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -11,6 +11,7 @@ public class Product {
     private String category;
     private BigDecimal discount;
     private String description;
+    private BigDecimal actualPrice;
 
     public Long getId() {
         return id;
@@ -82,12 +83,13 @@ public class Product {
                 Objects.equals(price, product.price) &&
                 Objects.equals(category, product.category) &&
                 Objects.equals(discount, product.discount) &&
-                Objects.equals(description, product.description);
+                Objects.equals(description, product.description) &&
+                Objects.equals(actualPrice, product.actualPrice);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, category, discount, description);
+        return Objects.hash(id, name, price, category, discount, description, actualPrice);
     }
 
     @Override
@@ -98,7 +100,8 @@ public class Product {
                 ", price=" + price + '\'' +
                 ", category=" + category + '\'' +
                 ", discount=" + discount + '\'' +
-                ", description=" + description +
+                ", description=" + description + '\'' +
+                ", actualPrice=" + actualPrice +
                 '}';
     }
 }
